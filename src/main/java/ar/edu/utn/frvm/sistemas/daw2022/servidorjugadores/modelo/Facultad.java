@@ -3,7 +3,9 @@ package ar.edu.utn.frvm.sistemas.daw2022.servidorjugadores.modelo;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 @Data
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 public class Facultad {
 
     @Id
+    @GeneratedValue
     private Integer id;
     @NonNull
     private String nombre;

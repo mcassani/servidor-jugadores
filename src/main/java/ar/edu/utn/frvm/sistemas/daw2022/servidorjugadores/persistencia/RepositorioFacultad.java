@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RepositorioFacultad extends CrudRepository<Facultad, Integer> {
+
+    Iterable<Facultad> findByNombre(String nombre);
+    Iterable<Facultad> findByNombreContainingIgnoreCase(String nombre);
+
 }
