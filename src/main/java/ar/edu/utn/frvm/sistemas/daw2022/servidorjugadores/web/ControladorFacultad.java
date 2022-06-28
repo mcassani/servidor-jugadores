@@ -4,6 +4,8 @@ import ar.edu.utn.frvm.sistemas.daw2022.servidorjugadores.logica.ServicioFaculta
 import ar.edu.utn.frvm.sistemas.daw2022.servidorjugadores.modelo.Facultad;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +25,12 @@ public class ControladorFacultad {
     @RequestMapping
     public Iterable<Facultad> getFacultades() {
         return this.servicio.getFacultades();
+    }
+
+    @RequestMapping(params = {"page"})
+    public Page<Facultad> getFacultades(Pageable pagina) {
+        log.debug(pagina.toString());
+        return this.servicio.getFacultades(pagina);
     }
 
     @RequestMapping(params = {"filtro"})

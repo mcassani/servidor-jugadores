@@ -2,6 +2,8 @@ package ar.edu.utn.frvm.sistemas.daw2022.servidorjugadores.logica;
 
 import ar.edu.utn.frvm.sistemas.daw2022.servidorjugadores.modelo.Facultad;
 import ar.edu.utn.frvm.sistemas.daw2022.servidorjugadores.persistencia.RepositorioFacultad;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,5 +44,9 @@ public class ServicioFacultad {
 
     public void eliminar(Integer id) {
         this.repositorio.deleteById(id);
+    }
+
+    public Page<Facultad> getFacultades(Pageable pagina) {
+        return this.repositorio.findAll(pagina);
     }
 }
