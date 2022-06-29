@@ -12,6 +12,7 @@ import java.util.List;
 
 @Slf4j
 @RequestMapping(value = "/facultades")
+@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.OPTIONS})
 @RestController
 public class ControladorFacultad {
 
